@@ -32,6 +32,7 @@ app.post('/activate', bodyParser, (req, res) => {
 app.post('/codebreaker', bodyParser, (req, res) => {
     if(numberCodeBreaker !== 0){
         const numberx = req.body.number;
+        console.log("Ingresando....");
         console.log(numberCodeBreaker);
         let number = codeBreaker.codeBreaker(numberCodeBreaker, numberx);
         res.send(number);

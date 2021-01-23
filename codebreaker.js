@@ -1,16 +1,20 @@
-let code = '1536';
+let codiguito = '';
 
 function codeBreaker(code, numVar) {
-    this.code = code;
+    this.codiguito = code;
+
+    console.log("codigo:", code);
+    console.log("variable:", numVar);
     let x = '';
     for(let i = 0; i < 4; i ++){
-      x = x + computeNumber(numVar, i);
+      x = x + computeNumber(code, numVar, i);
     }
     return x;
   } 
 
-function computeNumber(number, pos){
+function computeNumber(code, number, pos){
   let char = '';
+  console.log("codigo:", code);
   if(code.includes(number[pos])){
       char = '_';
   }

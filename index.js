@@ -3,6 +3,8 @@ const app = express();
 const codeBreaker = require('./codebreaker.js');
 let numberCodeBreaker = 0;
 const bodyParser = require('body-parser').json();
+
+app.listen(3000);
  
 app.get('/', function (req, res) {
   res.send('Hello World')
@@ -33,4 +35,3 @@ app.post('/codebreaker', bodyParser, (req, res) => {
     }
 });
  
-app.listen(3000);

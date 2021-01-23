@@ -51,5 +51,5 @@ describe('cuatro xxxx', () => {
         // hacer una aserción
         expect(value).toBe('__'); //ASSERT
     });
-    
+    //
 });

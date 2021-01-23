@@ -3,13 +3,6 @@ const app = express();
 const codeBreaker = require('./codebreaker.js');
 let numberCodeBreaker = 0;
 const bodyParser = require('body-parser').json();
-const port = process.env.PORT || 3000;
-const host = '0.0.0.0';
- 
-app.listen(port, host, function() {
-    console.log("Server started.......");
-    console.log(port);
- });
   
 
 app.get('/', function (req, res) {
@@ -17,8 +10,7 @@ app.get('/', function (req, res) {
 })
 
 app.post('/activate', bodyParser, (req, res) => {
-    console.log(req.body);
-    const number = req.body.number;
+    const number = req.query.number;
     if (number.length > 4) {
         res.status(400);
         res.send("error");
@@ -31,9 +23,7 @@ app.post('/activate', bodyParser, (req, res) => {
 
 app.post('/codebreaker', bodyParser, (req, res) => {
     if(numberCodeBreaker !== 0){
-        const numberx = req.body.number;
-        console.log("Ingresando....");
-        console.log(numberCodeBreaker);
+        const numberx = req.query.number;
         let number = codeBreaker.codeBreaker(numberCodeBreaker, numberx);
         res.send(number);
     }else{
@@ -42,3 +32,4 @@ app.post('/codebreaker', bodyParser, (req, res) => {
     }
 });
  
+module.exports = app;

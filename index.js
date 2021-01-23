@@ -3,9 +3,14 @@ const app = express();
 const codeBreaker = require('./codebreaker.js');
 let numberCodeBreaker = 0;
 const bodyParser = require('body-parser').json();
-
-app.listen(8080);
+const port = process.env.PORT || 3000;
  
+app.listen(port, host, function() {
+    console.log("Server started.......");
+    console.log(port);
+ });
+  
+
 app.get('/', function (req, res) {
   res.send('Hello World')
 })
